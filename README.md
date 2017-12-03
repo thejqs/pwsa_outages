@@ -1,8 +1,8 @@
 # Pittsburgh has a lot of service outages.
 
-It's an old city with old infrastructure. And it's not always easy to track information about Pittsburgh Water & Sewer Authority service disruptions.
+It's an old city with old infrastructure. And it's not always easy to track information about Pittsburgh Water & Sewer Authority service disruptions and projects.
 
-Hence this little scraper. It collects available data about reported outages and community updates -- time of the update, the pdf of the information released, etc. -- and organizes it should anyone desire to parse it further to their own ends.
+Hence this little scraper. It collects available data about reported project updates and outages as well as community updates -- time of the update, the pdf of the information released, etc. -- and organizes it should anyone desire to parse it further to their own ends.
 
 Written in `Python 3.6`, this will go to the PWSA's site and grab whatever documents and metadata are published on the outages page, then save out the docs and a `JSON` map of the original document url, its timestamp, the original document title from the site, and the filename it saved to for you. It will ignore duplicates, because PWSA report urls are unique by convention, so it can run whenever and just update your collection.
 
