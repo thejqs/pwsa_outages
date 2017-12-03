@@ -55,11 +55,13 @@ def find_pdfs(tree):
     returns:
     a generator object containing full url paths to pdfs
     '''
-    # grab data, attempting to account for crappy elements that have dupes
+    # grab data
     titles = tree.xpath('//*[@class="blurbTitle"]//text()')
+    # duplicate urls help literally no one, and there's at least one here
     urls = set(tree.xpath('//*[@class="blurbDescription"]//a/@href'))
     tstamps = tree.xpath('//*[@class="blurbStamp"]//text()')
 
+    # make sure this is structured how we expect, otherwise yell about it
     if len(titles) == len(urls) and len(urls) == len(tstamps):
         data = list(zip(titles, urls, tstamps))
         return data
@@ -95,8 +97,8 @@ def add_filenames_to_data(data):
 
 def scrape_pdfs(filenames_obj):
     '''
-    given either a generator object containing dicts or a list of dicts,
-    hands each item off for parsing, scraping and storage
+    given a generator object containing dicts, hands each item off for parsing,
+    scraping and storage
 
     params:
     a generator or iterable
@@ -104,11 +106,12 @@ def scrape_pdfs(filenames_obj):
     returns:
     none
     '''
-    obj = [f for f in filenames_obj]
-    for f in obj:
-        save_pdf(f)
+    # unpack the generator obj
+    files_data = [data for data in filenames_obj]
+    for file_obj in files_data:
+        save_pdf(file_obj)
 
-    create_timestamp_map(obj)
+    create_timestamp_map(files_data)
     return None
 
 
