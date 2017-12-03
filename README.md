@@ -19,7 +19,7 @@ Data looks kinda like this:
 }
 ```
 
-All this assumes is that you install the reqs.txt dependencies and have a directory ready to take the pdfs as they come in as this runs.
+All this assumes is that you install the reqs.txt dependencies, probably in a virtual environment, and have a directory ready to take the pdfs as they come in as this runs. After that, a simple `python3 outages_scraper.py` gets the party started.
 
 ```python
 def run_scrape(url):
