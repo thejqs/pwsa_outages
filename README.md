@@ -10,7 +10,7 @@ This script will ignore duplicates, because PWSA report urls are unique by conve
 
 Data looks kinda like this:
 
-```JSON
+```javascript
 {
     "filename": "PWSA-LTD-PUS-12-9-16.pdf",
     "timestamp": "11/27/17 @ 4:31 pm",
